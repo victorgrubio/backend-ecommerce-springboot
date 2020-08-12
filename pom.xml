@@ -63,6 +63,10 @@
         <version>3.0.3</version>
         <configuration>
           <jdkVersion>11</jdkVersion>
+          <includeTarget>false</includeTarget>
+          <includes>
+            <include>target/springboot-ecommerce-app-0.0.1-SNAPSHOT.jar</include>
+          </includes>
         </configuration>
       </plugin>
       <plugin>
