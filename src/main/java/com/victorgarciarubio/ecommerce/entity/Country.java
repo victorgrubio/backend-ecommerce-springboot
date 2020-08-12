@@ -12,13 +12,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name="country")
-@Getter
-@Setter
+@Data
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +29,7 @@ public class Country {
     @Column(name="name")
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "country")
     @JsonIgnore // Ignore in response json
     private List<State> states;
 }
