@@ -9,7 +9,7 @@ USE `heroku_c0edb524a9c3c7d` ;
 -- -----------------------------------------------------
 -- Table `full-stack-ecommerce`.`product_category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `heroku_c0edb524a9c3c7d`.`product_category` (
+CREATE TABLE IF NOT EXISTS `mpvmweiv00pv3pt2`.`product_category` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `category_name` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
@@ -19,7 +19,7 @@ AUTO_INCREMENT = 1;
 -- -----------------------------------------------------
 -- Table `full-stack-ecommerce`.`product`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `heroku_c0edb524a9c3c7d`.`product` (
+CREATE TABLE IF NOT EXISTS `mpvmweiv00pv3pt2`.`product` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `sku` VARCHAR(255) DEFAULT NULL,
   `name` VARCHAR(255) DEFAULT NULL,
