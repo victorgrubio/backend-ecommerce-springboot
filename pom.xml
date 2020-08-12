@@ -11,8 +11,9 @@
   <groupId>com.victorgarciarubio</groupId>
   <artifactId>ecommerce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>demo</name>
-  <description>Demo project for Spring Boot</description>
+  <packaging>jar</packaging>
+  <name>springboot-ecommerce-app</name>
+  <description>Ecommerce API project for Spring Boot Course</description>
   <properties>
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
