@@ -55,9 +55,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <finalName>demo-victor</finalName>
-      </configuration>
       </plugin>
       <plugin>
         <groupId>com.heroku.sdk</groupId>
@@ -65,6 +62,10 @@
         <version>3.0.3</version>
         <configuration>
           <jdkVersion>11</jdkVersion>
+          <includeTarget>false</includeTarget>
+          <includes>
+            <include>target/springboot-ecommerce-app-0.0.1-SNAPSHOT.jar</include>
+          </includes>
         </configuration>
       </plugin>
       <plugin>

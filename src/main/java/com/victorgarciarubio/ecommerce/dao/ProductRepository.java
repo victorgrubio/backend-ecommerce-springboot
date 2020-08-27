@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestParam;
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = {"https://ecommerce-app.victorgarciarubio.com", "https://frontend-ecommerce-angular.vercel.app"})
 @RepositoryRestResource(collectionResourceRel = "products", path = "products")
 public interface ProductRepository extends JpaRepository<Product, Long>{
     Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
