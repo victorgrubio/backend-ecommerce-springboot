@@ -9,7 +9,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.victorgarciarubio</groupId>
-  <artifactId>ecommerce</artifactId>
+  <artifactId>ecommerce-api</artifactId>
   <version>1.0.0</version>
   <name>ecommerce-api</name>
   <description>Ecommerce app backend API from Udemy course using Spring Boot</description>
@@ -65,7 +65,7 @@
           <jdkVersion>11</jdkVersion>
           <includeTarget>false</includeTarget>
           <includes>
-            <include>target/springboot-ecommerce-app-${var.version}.jar</include>
+            <include>target/springboot-ecommerce-app-1.0.0.jar</include>
           </includes>
         </configuration>
       </plugin>

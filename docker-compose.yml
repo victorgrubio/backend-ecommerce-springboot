@@ -1,15 +1,24 @@
 version: "3.3"
+networks: 
+  backend:
+    driver: bridge
 services:
   db:
     image: mysql:8.0.21
     restart: always
-    environment-file: .env
-    ports:
-      - "3307:3306"
+    env_file: 
+      - .env
     expose:
       - 3306
     volumes:
       - ./db:/var/lib/mysql
+    networks: 
+      - backend
   api:
-    image: victorgrubio/ecommerce-backend-spring:1.0.0
-    restart: always
+    image: victorgrubio/backend-ecommerce-api:1.0.0
+    env_file: 
+      - .env
+    ports:
+      - "8080:8080"
+    networks: 
+      - backend

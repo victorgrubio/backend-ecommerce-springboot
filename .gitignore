@@ -1,4 +1,5 @@
 ### Custom ###
+.env
 db
 
 ### Template Gitignore ###

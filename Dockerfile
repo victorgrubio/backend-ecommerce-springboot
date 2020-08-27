@@ -1,7 +1,10 @@
-FROM 3.6.3-jdk-11
-RUN mvn clean install
-FROM openjdk:11-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-EXPOSE 80
-ENTRYPOINT ["java","-jar", $JAVA_OPTS, "-Dserver.port=80", "/app.jar"]
+FROM maven:3.6.3-jdk-11 AS build  
+WORKDIR /usr/src/app
+COPY pom.xml /usr/src/app
+RUN mvn verify --fail-never
+COPY src /usr/src/app/src
+RUN mvn -f /usr/src/app/pom.xml clean package -DskipTests
+FROM gcr.io/distroless/java:11
+COPY --from=build /usr/src/app/target/ecommerce-api-1.0.0.jar app.jar
+EXPOSE 8080
+CMD ["app.jar"]
