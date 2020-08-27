@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  db:
+    image: mysql:8.0.21
+    restart: always
+    environment-file: .env
+    ports:
+      - "3307:3306"
+    expose:
+      - 3306
+    volumes:
+      - ./db:/var/lib/mysql
+  api:
+    image: victorgrubio/ecommerce-backend-spring:1.0.0
+    restart: always
