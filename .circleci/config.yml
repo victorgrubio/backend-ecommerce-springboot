@@ -5,5 +5,9 @@ workflows:
   docker-build-push:
     jobs:
       - docker/publish:
+        context: Docker
           image: victorgrubio/ecommerce-backend-spring
           use-docker-credentials-store: true
+          auth:
+            username: $DOCKERHUB_USER # can specify string literal values
+            password: $DOCKERHUB_PASSWORD  # or project environment variable reference
