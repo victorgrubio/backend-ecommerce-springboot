@@ -1,13 +1,8 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      - image: cimg/base:2020.01
-    steps:
-      - checkout
-      - run:
-          name: Build and push Docker image
-          command: |
-            docker build -t victorgrubio/ecommerce-backend-spring:1.0.0 .
-            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push victorgrubio/ecommerce-backend-spring:1.0.0
+orbs:
+  docker: circleci/docker@1.4.0
+workflows:
+  build-push-doccker:
+    jobs:
+      - docker/publish:
+          image: victorgrubio/ecommerce-backend-spring:1.0.0
