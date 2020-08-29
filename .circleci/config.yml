@@ -15,5 +15,4 @@ workflows:
   heroku-deployment:
     jobs:
       - heroku/push-docker-image:
-          parameters:
-            app-name: $HEROKU_APP_NAME
+          app-name: $HEROKU_APP_NAME
