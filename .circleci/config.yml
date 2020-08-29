@@ -14,5 +14,6 @@ workflows:
           tag: 'latest,1.0.0'
   heroku-deployment:
     jobs:
+      context: heroku
       - heroku/push-docker-image:
           app-name: $HEROKU_APP_NAME
