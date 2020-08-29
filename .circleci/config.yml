@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   docker: circleci/docker@1.4.0
+  heroku: circleci/heroku@1.2.2
 workflows:
   lint:
     jobs:
@@ -9,5 +10,10 @@ workflows:
   build-push-docker:
     jobs:
       - docker/publish:
-          image: victorgrubio/ecommerce-backend-spring
-          tag: 'latest,1.0.0'
+          image: $DOCKERHUB_REPO
+          tag: 'latest, 1.0.0'
+  heroku-deployment:
+    jobs:
+      - heroku/push-docker-image:
+          api-key: $HEROKU_API_KEY
+          app-name: $HEROKU_APP_NAME
