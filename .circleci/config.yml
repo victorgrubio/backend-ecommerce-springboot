@@ -2,12 +2,9 @@ version: 2.1
 orbs:
   docker: circleci/docker@1.4.0
 workflows:
-  docker-build-push:
+  docker_build_push:
     jobs:
       - docker/publish:
           context: Docker
           image: victorgrubio/ecommerce-backend-spring
           use-docker-credentials-store: true
-          auth:
-            username: $DOCKERHUB_USER # can specify string literal values
-            password: $DOCKERHUB_PASSWORD  # or project environment variable reference
