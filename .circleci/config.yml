@@ -6,7 +6,6 @@ workflows:
     jobs:
       - docker/hadolint:
           dockerfiles: Dockerfile
-          trusted-registries: 'docker.io'
   build-push-docker:
     jobs:
       - docker/publish:
