@@ -2,9 +2,8 @@ version: 2.1
 orbs:
   docker: circleci/docker@1.4.0
 workflows:
-  build-push-doccker:
+  build-push-docker:
     jobs:
       - docker/publish:
           image: victorgrubio/ecommerce-backend-spring
-          tags:
-            - 'latest,1.0.0'
+          tag: 'latest,1.0.0'
