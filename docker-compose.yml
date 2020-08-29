@@ -15,7 +15,7 @@ services:
     networks: 
       - backend
   api:
-    image: victorgrubio/backend-ecommerce-api:1.0.0
+    image: victorgrubio/ecommerce-backend-spring:1.0.0
     env_file: 
       - .env
     ports:

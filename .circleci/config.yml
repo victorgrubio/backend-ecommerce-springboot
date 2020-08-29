@@ -1,9 +1,9 @@
 version: 2.1
-
 orbs:
-  maven: circleci/maven@0.0.12
-
+  docker: circleci/docker@1.4.0
 workflows:
-  maven_test:
+  docker-build-push:
     jobs:
-      - maven/test # checkout, build, test, and upload test results
+      - docker/publish:
+          image: victorgrubio/ecommerce-backend-spring
+          use-docker-credentials-store: true
