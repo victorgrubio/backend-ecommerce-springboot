@@ -5,4 +5,6 @@ workflows:
   build-push-doccker:
     jobs:
       - docker/publish:
-          image: victorgrubio/ecommerce-backend-spring:1.0.0
+          image: victorgrubio/ecommerce-backend-spring
+          tags:
+            - 'latest,1.0.0'
