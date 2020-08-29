@@ -10,7 +10,7 @@ workflows:
   build-push-docker:
     jobs:
       - docker/publish:
-          image: $DOCKERHUB_REPO
+          image: victorgrubio/ecommerce-backend-spring
           tag: 'latest, 1.0.0'
   heroku-deployment:
     jobs:
