@@ -1,10 +1,15 @@
 version: 2.1
-orbs:
-  docker: circleci/docker@1.4.0
-workflows:
-  docker_build_push:
-    jobs:
-      - docker/publish:
-          context: Docker
-          image: victorgrubio/ecommerce-backend-spring
-          use-docker-credentials-store: true
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Build and push Docker image
+          command: |
+            docker build -t victorgrubio/ecommerce-backend-spring:1.0.0 .
+            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker push victorgrubio/ecommerce-backend-spring:1.0.0
