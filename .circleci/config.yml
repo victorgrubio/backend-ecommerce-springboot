@@ -7,14 +7,14 @@ workflows:
     jobs:
       - docker/hadolint:
           dockerfiles: Dockerfile
-  build-push-docker:
+  build-push-heroku-docker:
     jobs:
       - docker/publish:
           image: victorgrubio/ecommerce-backend-spring
           tag: 'latest,1.0.0'
-  heroku-deployment:
-    jobs:
       - heroku/push-docker-image:
+          requires:
+            - docker/publish
           context:
             - heroku
           app-name: $HEROKU_APP_NAME
