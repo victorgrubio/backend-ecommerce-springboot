@@ -12,9 +12,7 @@ workflows:
       - docker/publish:
           image: victorgrubio/ecommerce-backend-spring
           tag: 'latest,1.0.0'
-      - heroku-docker-deploy:
-          requires:
-            - docker/publish
+      - heroku-docker-deploy
 
 jobs:
   heroku-docker-deploy:
