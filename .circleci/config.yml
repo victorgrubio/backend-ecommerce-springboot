@@ -3,14 +3,18 @@ orbs:
   docker: circleci/docker@1.4.0
   heroku: circleci/heroku@1.2.2
 workflows:
-  docker-lint-build-push-heroku:
+  lint:
     jobs:
       - docker/hadolint:
           dockerfiles: Dockerfile
+  build-push-docker:
+    jobs:
       - docker/publish:
           image: victorgrubio/ecommerce-backend-spring
           tag: 'latest,1.0.0'
-      - heroku/push-docker-image:
+  heroku-deployment:
+    jobs:
+      - heroku/deploy-via-git:
           context:
             - heroku
           app-name: $HEROKU_APP_NAME
