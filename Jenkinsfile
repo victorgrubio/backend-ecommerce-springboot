@@ -9,6 +9,8 @@ pipeline {
     stage('Build docker'){
       steps{
         withEnv(["HOME=${env.WORKSPACE}"]) {
+          sh 'wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64'
+          sh 'chmod +x /bin/hadolint'
           sh 'hadolint Dockerfile'
         }
         script {
