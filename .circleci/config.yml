@@ -12,10 +12,22 @@ workflows:
       - docker/publish:
           image: victorgrubio/ecommerce-backend-spring
           tag: 'latest,1.0.0'
-      - heroku/push-docker-image:
+      - heroku-docker-deploy:
           requires:
             - docker/publish
-          context:
-            - heroku
-          pre-deploy:
-            - setup_remote_docker
+
+jobs:
+  heroku-docker-deploy:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - heroku/install
+      - heroku/check-authentication
+      - setup_remote_docker
+      - checkout
+      - heroku/push-docker-image:
+          app-name: $HEROKU_APP_NAME
+          process-types: web
+      - heroku/release-docker-image:
+          app-name: HEROKU_APP_NAME
+          process-types: web
