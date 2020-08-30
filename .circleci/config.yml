@@ -17,4 +17,6 @@ workflows:
             - docker/publish
           context:
             - heroku
+          pre-deploy:
+            - setup_remote_docker
           app-name: $HEROKU_APP_NAME
