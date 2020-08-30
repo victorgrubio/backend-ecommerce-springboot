@@ -25,7 +25,6 @@ jobs:
       - checkout
       - heroku/push-docker-image:
           app-name: $HEROKU_APP_NAME
-          process-types: "web"
           recursive: true
       - heroku/release-docker-image:
           app-name: HEROKU_APP_NAME
