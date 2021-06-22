@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "victorgrubio/ecommerec-backend-spring"
+    registry = "victorgrubio/ecommerce-backend-spring"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }

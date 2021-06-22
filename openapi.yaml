@@ -1,0 +1,198 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Swagger Backend Ecommerce Store Springboot
+  description:  API to obtain data required to make the Ecommerce Application functional
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: Victor Garcia Rubio
+    email: victorgrubiodl@gmail.com
+    url: https://victorgarciar.com
+  license:
+    name: MIT
+    url: https://choosealicense.com/licenses/mit/
+servers:
+  - url: https://springboot-ecommerce-app.herokuapp.com/
+paths:
+  /states:
+    get:
+      summary: Get list of states
+      description: Get list of states
+      operationId: getStates
+      parameters:
+        - name: code
+          in: query
+          description: country code to get states
+          required: false
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: State response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/State'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /countries:
+    get:
+      summary: Get list of countries
+      description: Get list of countries
+      operationId: getCountries
+      responses:
+        '200':
+          description: Country response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /product-category:
+    get:
+      summary: Get list of product categories
+      description: Get list of product categories
+      operationId: getProductCategories
+      responses:
+        '200':
+          description: Product Category list response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductCategory'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /products:
+    get:
+      summary: Get list of products
+      description: Get list of products
+      operationId: getProducts
+      parameters:
+        - name: id
+          in: query
+          description: category id to filter products
+          required: false
+          style: form
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: name of product to filter
+          required: false
+          style: form
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    State:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        country_id:
+          type: integer
+    Country:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int64
+          minimum: 1
+        code:
+          type: string
+        name:
+          type: string
+    ProductCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 1
+        categoryName:
+          type: string
+        products:
+          type: array
+          items:
+              $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 1
+        category:
+          type: integer
+          minimum: 1
+        sku:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        unitPrice:
+          type: number
+        imageUrl:
+          type: string
+          format: uri
+        active:
+          type: boolean
+        unitsInStock:
+          type: integer
+          minimum: 0
+        dateCreated:
+          type: string
+          format: datetime
+        lastUpdated:
+          type: string
+          format: datetime
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

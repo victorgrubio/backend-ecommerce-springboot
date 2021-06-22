@@ -11,7 +11,33 @@ See the application working [**here!**](https://ecommerce-app.victorgarciar.com)
 
 ## Installation
 
-## REST API
+```bash
+docker pull victorgarciarubio/ecommerce-backend-spring
+```
+
+## Docs
+
+OpenAPI v3 documentation is available [here](./openapi.yaml)
+
+
+## Continuous Integration
+
+### Jenkins
+
+Created [Jenkinsfile](./Jenkinsfile) to setup the Continuous Integration with [Jenkins Server](https://www.jenkins.io/). Builds the application, pass the test and builds the Docker image and pushes it to Dockerhub.
+
+### Circle CI
+
+Created [.circleci/config.yaml](.circleci/config.yaml) to build the application and perform the test. If the tests are passed, the Docker image is built and uploaded to Dockerhub.
+
+
+## Deployment
+
+### Heroku
+
+Automatic deployment defined in master branch.
+
+[Procfile](./Procfile) allows Heroku to launch the application.
 
 ## Contribute
 
