@@ -16,7 +16,8 @@ See the application working [**here!**](https://ecommerce-angular-app.victorgarc
 <br>
 
 ## Installation
-------
+
+
 ### Docker
 Just download the docker image from Dockerhub
 
@@ -29,17 +30,17 @@ docker pull victorgarciarubio/ecommerce-backend-spring
 <br>
 
 ## Docs
-------
+
 
 OpenAPI v3 documentation file is available [here](./openapi.yaml). 
 
 You can check the Swagger UI Rendered Version in my [Swaggerhub Link](https://app.swaggerhub.com/apis-docs/victorgarciar/swagger-backend_ecommerce_store_springboot/1.0.0)
 
 
+
 <br>
 
 ## Continuous Integration
-------
 
 
 ### Jenkins
@@ -54,7 +55,6 @@ Created [.circleci/config.yaml](.circleci/config.yaml) to build the application 
 <br>
 
 ## Deployment
------
 
 ### Heroku
 
@@ -65,7 +65,7 @@ Automatic deployment defined in master branch.
 <br>
 
 ## Contribute
------
+
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
