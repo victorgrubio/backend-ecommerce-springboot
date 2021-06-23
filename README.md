@@ -7,7 +7,7 @@
 
 <br>Ecommerce REST API from the Udemy course "Fullstack: Spring Boot and Angular" instructed by Chad Darby. Deployed at [**Heroku**](https://heroku.com) using [**CircleCI**](https://circleci.com) for the CI/CD procedure
 
-See the application working [**here!**](https://ecommerce-app.victorgarciar.com)
+See the application working [**here!**](https://ecommerce-angular-app.victorgarciar.com)
 
 ## Installation
 
