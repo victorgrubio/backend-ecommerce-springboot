@@ -5,6 +5,8 @@ orbs:
 workflows:
   build-push-heroku-docker:
     jobs:
+      - code-analysis:
+          context: SonarCloud
       - docker/hadolint:
           dockerfiles: Dockerfile.web
       - docker/publish:
@@ -13,6 +15,14 @@ workflows:
           tag: 'latest,1.0.0'
       - heroku-docker-deploy
 jobs:
+  code-analysis:
+    docker:
+      - image: 'circleci/openjdk:11-jdk'
+    steps:
+      - checkout
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar
   heroku-docker-deploy:
     docker:
       - image: 'cimg/base:stable'
