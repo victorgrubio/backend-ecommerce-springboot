@@ -11,7 +11,8 @@ services:
     expose:
       - 3306
     volumes:
-      - ./db:/var/lib/mysql
+      - ecommerce_spring_db:/var/lib/mysql
+      - $PWD/bin/db-scripts:/docker-entrypoint-initdb.d
     networks: 
       - backend
   api:
@@ -22,3 +23,5 @@ services:
       - "8080:8080"
     networks: 
       - backend
+volumes:
+  ecommerce_spring_db:

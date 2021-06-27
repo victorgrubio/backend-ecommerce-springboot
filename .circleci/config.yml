@@ -5,8 +5,6 @@ orbs:
 workflows:
   build-push-heroku-docker:
     jobs:
-      - code-analysis:
-          context: SonarCloud
       - docker/hadolint:
           dockerfiles: Dockerfile.web
       - docker/publish:

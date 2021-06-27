@@ -3,7 +3,7 @@ info:
   version: 1.0.0
   title: Swagger Backend Ecommerce Store Springboot
   description:  API to obtain data required to make the Ecommerce Application functional
-  termsOfService: http://swagger.io/terms/
+  termsOfService: https://swagger.io/terms/
   contact:
     name: Victor Garcia Rubio
     email: victorgrubiodl@gmail.com
