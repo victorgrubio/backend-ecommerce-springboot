@@ -5,7 +5,8 @@ orbs:
 workflows:
   code_analysis-build-push-docker-heroku:
     jobs:
-      - code-analysis
+      - code-analysis:
+          context: SonarCloud
       - docker/hadolint:
           dockerfiles: Dockerfile.web
           requires:
