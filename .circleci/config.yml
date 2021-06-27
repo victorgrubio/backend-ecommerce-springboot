@@ -3,20 +3,22 @@ orbs:
   docker: circleci/docker@1.4.0
   heroku: circleci/heroku@1.2.2
 workflows:
-  code-analysis:
+  code_analysis-build-push-docker-heroku:
     jobs:
       - code-analysis
-  build-push-docker:
-    jobs:
       - docker/hadolint:
           dockerfiles: Dockerfile.web
+          requires:
+            - code-analysis
       - docker/publish:
           dockerfile: Dockerfile.web
           image: victorgrubio/ecommerce-backend-spring
           tag: 'latest,1.0.0'
-  heroku-deploy:
-    jobs:
-      - heroku-docker-deploy
+          requires:
+            - docker/hadolint
+      - heroku-docker-deploy:
+          requires:
+            - docker/publish
 jobs:
   code-analysis:
     docker:
