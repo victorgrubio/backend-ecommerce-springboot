@@ -27,7 +27,7 @@ jobs:
       - checkout
       - run:
           name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
+          command: mvn verify sonar:sonar -Dsonar.login=$SONAR_TOKEN
   heroku-docker-deploy:
     docker:
       - image: 'cimg/base:stable'
